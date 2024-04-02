@@ -1,7 +1,7 @@
-export async function getHotels() {
-    // await new Promise((resolve) => setTimeout(resolve, 1000));
+import { Hotel } from "../interfacaes/hotel";
 
-    return fetch(process.env.API_URL + `/hotels`)
+export async function getHotels() {
+    return fetch(process.env.API_URL + `/hotels/`)
         .then(response => response.json())
         .then(data => data);
 }

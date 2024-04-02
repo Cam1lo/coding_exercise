@@ -1,7 +1,6 @@
 import HotelCard from "@/components/HotelCard";
 import { getHotelById } from "@/core/api/hotels";
 import { Hotel as IHotel } from "@/core/interfacaes/hotel";
-import Image from "next/image";
 
 export default async function Hotel({ params }: { params: { id: string } }) {
     const hotel: IHotel = await getHotelById(params.id);
