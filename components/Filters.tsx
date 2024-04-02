@@ -39,7 +39,7 @@ export default function Filters() {
 
             setHotels([...sortedHotels]);
         }
-    }, [sort]);
+    }, [sort, coords, hotels]);
 
     return (
         <div className="mt-20 p-10">
