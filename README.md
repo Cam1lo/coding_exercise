@@ -10,3 +10,16 @@ Given that the project uses App router from NextJs 13. SSG components doesnt use
 The geolocation feature has missing details such as
 - Use filter instead of sort
 - Show amount of miles in the hotel card 
+
+
+## To Run locally
+
+First install dependencies
+```
+npm install
+```
+
+Then run the application on a local environment
+```
+npm run dev
+```
