@@ -27,19 +27,19 @@ export default function Filters() {
 
     useEffect(() => {
         if (sort === "rating") {
-            setHotels([...hotels.sort((a: Hotel, b: Hotel) => b.rating - a.rating)]);
+            setHotels((h) => [...h.sort((a: Hotel, b: Hotel) => b.rating - a.rating)]);
         } else if (sort === "price") {
-            setHotels([...hotels.sort((a: Hotel, b: Hotel) => a.from_price - b.from_price)]);
+            setHotels((h) => [...h.sort((a: Hotel, b: Hotel) => a.from_price - b.from_price)]);
         } else if (sort === "location" && coords) {
-            const sortedHotels = hotels.sort((a: Hotel, b: Hotel) => {
-                const aDistance = getDistance(a.position.lat, a.position.lng, coords.latitude, coords.longitude);
-                const bDistance = getDistance(b.position.lat, b.position.lng, coords.latitude, coords.longitude);
-                return aDistance - bDistance;
-            });
-
-            setHotels([...sortedHotels]);
+            setHotels((h) => [
+                ...h.sort((a: Hotel, b: Hotel) => {
+                    const aDistance = getDistance(a.position.lat, a.position.lng, coords.latitude, coords.longitude);
+                    const bDistance = getDistance(b.position.lat, b.position.lng, coords.latitude, coords.longitude);
+                    return aDistance - bDistance;
+                }),
+            ]);
         }
-    }, [sort, coords, hotels]);
+    }, [sort, coords]);
 
     return (
         <div className="mt-20 p-10">
